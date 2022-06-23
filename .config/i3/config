@@ -1,0 +1,89 @@
+exec --no-startup-id dex --autostart --environment i3
+
+exec --no-startup-id xset s off -dpms
+exec --no-startup-id xbacklight -set 25
+exec --no-startup-id picom --experimental-backends
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.backgrounds/*
+
+set $M Mod4
+set $A Alt
+set $S Shift
+set $C Control
+
+floating_modifier $M
+font pango:JetBrainsMono Nerd Font 8
+for_window [class="^.*"] border pixel 1
+
+client.focused          #FFFFFF #000000 #FFFFFF #FFFFFF   #FFFFFF
+client.focused_inactive #000000 #FFFFFF #000000 #000000   #000000
+client.unfocused        #000000 #FFFFFF #000000 #000000   #000000
+client.urgent           #FF0000 #FF0000 #FFFFFF #FF0000   #000000
+client.placeholder      #000000 #FFFFFF #000000 #000000   #000000
+client.background               #000000
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $M+1 workspace number $ws1
+bindsym $M+2 workspace number $ws2
+bindsym $M+3 workspace number $ws3
+bindsym $M+4 workspace number $ws4
+bindsym $M+5 workspace number $ws5
+bindsym $M+6 workspace number $ws6
+bindsym $M+7 workspace number $ws7
+bindsym $M+8 workspace number $ws8
+bindsym $M+9 workspace number $ws9
+bindsym $M+0 workspace number $ws10
+
+bindsym $M+$S+1 move container to workspace number $ws1
+bindsym $M+$S+2 move container to workspace number $ws2
+bindsym $M+$S+3 move container to workspace number $ws3
+bindsym $M+$S+4 move container to workspace number $ws4
+bindsym $M+$S+5 move container to workspace number $ws5
+bindsym $M+$S+6 move container to workspace number $ws6
+bindsym $M+$S+7 move container to workspace number $ws7
+bindsym $M+$S+8 move container to workspace number $ws8
+bindsym $M+$S+9 move container to workspace number $ws9
+bindsym $M+$S+0 move container to workspace number $ws10
+
+bindsym $M+r restart
+bindsym $M+w kill
+
+bindsym $M+Return exec kitty
+bindsym $M+space exec --no-startup-id rofi -show drun
+bindsym $M+Tab exec --no-startup-id rofi -show window
+
+bindsym $M+k focus up
+bindsym $M+j focus down
+bindsym $M+h focus left
+bindsym $M+l focus right
+
+bindsym $M+$S+k move up
+bindsym $M+$S+j move down
+bindsym $M+$S+h move left
+bindsym $M+$S+l move right
+
+bindsym $M+$C+k resize grow height 10 px or 10 ppt
+bindsym $M+$C+j resize shrink width 10 px or 10 ppt
+bindsym $M+$C+h resize grow width 10 px or 10 ppt
+bindsym $M+$C+l resize shrink height 10 px or 10 ppt
+
+bindsym $M+f fullscreen toggle
+bindsym $M+$S+f floating toggle
+bindsym $M+q focus mode_toggle
+bindsym $M+$S+w layout toggle split
+
+bindsym XF86MonBrightnessUp exec xbacklight -inc 25
+bindsym XF86MonBrightnessDown exec xbacklight -dec 25
+bindsym XF86AudioRaiseVolume exec amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 5%-
+bindsym XF86AudioMute exec amixer sset Master toggle

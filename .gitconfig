@@ -1,0 +1,41 @@
+[alias]
+	a =   add
+	aa =  add --all
+	d =   diff
+	g =   grep
+	l =   log
+	sh =  show
+	st =  status
+	b =   branch
+	c =   commit
+	cm =  commit --allow-empty-message
+	f =   fetch
+	p =   push
+	pl =  pull
+	bs =  switch
+	m =   merge
+	i =   init
+	cn =  clone
+
+[core]
+	editor = nvim
+
+[color]
+	ui =           auto
+    grep =         auto
+    diff =         auto
+    status =       auto
+    branch =       auto
+    interactive =  auto
+
+[log]
+	decorate = full
+
+[push]
+    default = simple
+
+[user]
+	name =   BlooD
+	email =  78975020+bloodzera@users.noreply.github.com
+[init]
+	defaultBranch = main
