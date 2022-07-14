@@ -4,7 +4,8 @@ exec --no-startup-id xset s off -dpms
 exec --no-startup-id xbacklight -set 25
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.backgrounds/*
+exec --no-startup-id betterlockscreen -u $HOME/.wallpapers
+exec --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.wallpapers/*
 
 set $M Mod4
 set $A Alt
@@ -14,6 +15,10 @@ set $C Control
 floating_modifier $M
 font pango:JetBrainsMono Nerd Font 8
 for_window [class="^.*"] border pixel 1
+
+gaps inner 8
+
+focus_follows_mouse no
 
 client.focused          #FFFFFF #000000 #FFFFFF #FFFFFF   #FFFFFF
 client.focused_inactive #000000 #FFFFFF #000000 #000000   #000000
