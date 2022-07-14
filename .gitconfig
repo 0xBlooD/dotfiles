@@ -1,5 +1,6 @@
 [alias]
 	a =   add
+	aa =  add --all
 	d =   diff
 	g =   grep
 	l =   log
@@ -7,6 +8,7 @@
 	st =  status
 	b =   branch
 	c =   commit
+	cm =  commit --allow-empty-message
 	f =   fetch
 	p =   push
 	pl =  pull
@@ -16,7 +18,7 @@
 	cn =  clone
 
 [core]
-	editor = vim
+	editor = nvim
 
 [color]
 	ui =           auto
@@ -37,3 +39,5 @@
 	email =  78975020+bloodzera@users.noreply.github.com
 [init]
 	defaultBranch = main
+[pull]
+	rebase = false
