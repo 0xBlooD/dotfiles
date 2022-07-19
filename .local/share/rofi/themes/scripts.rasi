@@ -26,11 +26,6 @@ configuration {
 
     disable-history: true;
 
-    display-drun: "";
-    display-ssh: "";
-    display-window: "缾";
-    display-filebrowser: "";
-
     click-to-exit: true;
 
     filebrowser {
@@ -65,32 +60,7 @@ mainbox {
     foreground-color:  rgb(255,255,255);
     background-color:  rgb(0,0,0);
 
-    children: [ inputbar,listview ];
-
-}
-
-inputbar {
-
-    padding:  5;
-    
-    text-color:        rgb(255,255,255);
-    foreground-color:  rgb(0,0,0);
-    background-color:  rgb(0,0,0);
-
-    border:         0 0 1 0;
-    border-color:   rgb(255,255,255);
-    border-radius:  3;
-
-    children: [ entry ];
-
-}
-
-entry {
-
-    spacing:           3;
-    text-color:        rgb(255,255,255);
-    background-color:  rgb(0,0,0);
-    horizontal-align:  0.5;
+    children: [listview ];
 
 }
 

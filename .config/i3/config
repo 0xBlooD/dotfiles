@@ -62,6 +62,7 @@ bindsym $M+$S+0 move container to workspace number $ws10
 
 bindsym $M+r restart
 bindsym $M+w kill
+bindsym $M+$S+p exec --no-startup-id $HOME/.config/i3/lock.sh
 
 bindsym $M+Return exec kitty
 bindsym $M+space exec --no-startup-id rofi -show drun
