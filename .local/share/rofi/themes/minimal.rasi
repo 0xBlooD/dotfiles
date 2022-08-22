@@ -12,7 +12,6 @@ configuration {
     font: "RobotoMono Nerd Font 10";
 
     fixed-num-lines: false;
-    yoffset:  -200;
 
     show-icons: false;
 
@@ -43,10 +42,11 @@ configuration {
 window {
 
     width:    400;
+    location: center;
 
     text-color:        rgb(255,255,255);
     foreground-color:  rgb(255,255,255);
-    background-color:  rgb(0,0,0);
+    background-color:  rgba(0,0,0,80%);
 
     border:         1;
     border-color:   rgb(255,255,255);
@@ -63,7 +63,7 @@ mainbox {
 
     text-color:        rgb(255,255,255);
     foreground-color:  rgb(255,255,255);
-    background-color:  rgb(0,0,0);
+    background-color:  rgba(0,0,0,80%);
 
     children: [ inputbar,listview ];
 
@@ -74,8 +74,8 @@ inputbar {
     padding:  5;
     
     text-color:        rgb(255,255,255);
-    foreground-color:  rgb(0,0,0);
-    background-color:  rgb(0,0,0);
+    foreground-color:  rgba(0,0,0,80%);
+    background-color:  rgba(0,0,0,80%);
 
     border:         0 0 1 0;
     border-color:   rgb(255,255,255);
@@ -89,7 +89,7 @@ entry {
 
     spacing:           3;
     text-color:        rgb(255,255,255);
-    background-color:  rgb(0,0,0);
+    background-color:  rgba(0,0,0,80%);
     horizontal-align:  0.5;
 
 }
@@ -100,7 +100,7 @@ listview {
     scrollbar:         false;
     lines:             10;
     spacing:           10;
-    background-color:  rgb(0,0,0);
+    background-color:  rgba(0,0,0,80%);
     border-radius:     3;
     vertical-align:    0.5;
 
@@ -113,14 +113,14 @@ element, element-text {
 
     text-color:        rgb(255,255,255);
     foreground-color:  rgb(255,255,255);
-    background-color:  rgb(0,0,0);
+    background-color:  rgba(0,0,0,80%);
 
 }
 
 element.selected, element-text.selected {
 
-    text-color:        rgb(0,0,0);
-    foreground-color:  rgb(0,0,0);
+    text-color:        rgba(0,0,0,80%);
+    foreground-color:  rgba(0,0,0,80%);
     background-color:  rgb(255,255,255);
 
 }
@@ -132,14 +132,14 @@ button {
 
     text-color:        rgb(255,255,255);
     foreground-color:  rgb(255,255,255);
-    background-color:  rgb(0,0,0);
+    background-color:  rgba(0,0,0,80%);
 
 }
 
 button.selected {
 
-    text-color:        rgb(0,0,0);
-    foreground-color:  rgb(0,0,0);
+    text-color:        rgba(0,0,0,80%);
+    foreground-color:  rgba(0,0,0,80%);
     background-color:  rgb(255,255,255);
 
 }
