@@ -23,6 +23,7 @@ exec --no-startup-id --autostart --environment i3
 exec --no-startup-id xset s off -dpms
 exec --no-startup-id xbacklight -set 25
 exec --no-startup-id picom --experimental-backends
+exec --no-startup-id $HOME/.local/bin/cleancache.sh
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.wallpapers/*
 
@@ -65,6 +66,7 @@ bindsym $m+$c+h resize shrink width 10 px or 10 ppt
 bindsym $m+$c+l resize grow width 10 px or 10 ppt
 
 bindsym $m+r restart
+bindsym $m+p exec --no-startup-id betterlockscreen -l -w /home/blood/.wallpapers/1208751.jpg --blur 0.8
 
 bindsym $m+k focus up
 bindsym $m+j focus down
@@ -87,6 +89,7 @@ bindsym $m+$s+w layout toggle split
 bindsym $m+w kill
 bindsym $m+Return exec kitty
 bindsym $m+space exec --no-startup-id rofi -show drun
+bindsym $m+F10 exec --no-startup-id scrot %d-%m-%Y_%H-%M_screenshot.jpg -e 'mv %f ~/Pictures/'
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
