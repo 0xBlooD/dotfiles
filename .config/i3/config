@@ -1,42 +1,51 @@
+client.focused          #abb2bf #61afef #282c34 #61afef #56b6c2
+client.focused_inactive #353b45 #353b45 #abb2bf #545862 #353b45
+client.unfocused        #353b45 #282c34 #abb2bf #353b45 #353b45
+client.urgent           #e06c75 #e06c75 #282c34 #e06c75 #e06c75
+client.placeholder      #282c34 #282c34 #abb2bf #282c34 #282c34
+client.background       #c8ccd4
+
+for_window [urgent=latest]                 focus
+for_window [class="^.*"]                   border pixel 1
+for_window [title="feh"]                   floating enable
+for_window [title="alsamixer"]             floating enable
+for_window [class="Lxappearance"]          floating enable
+for_window [class="Pavucontrol"]           floating enable
+for_window [class="Nm-connection-editor"]  floating enable
+
+focus_follows_mouse  no
+floating_modifier    $m
+smart_gaps           off
+smart_borders        on
+
+gaps inner 5
+gaps outer 0
+
+font pango:RobotoMono Nerd Font 8
 
 set $m Mod4
 set $a Mod1
 set $s Shift
 set $c Control
 
-font pango:RobotoMono Nerd Font 8
-floating_modifier $m
-for_window [class="^.*"] border pixel 1
-focus_follows_mouse no
+exec --no-startup-id dex --autostart --environment i3
 
-gaps inner 6
+exec_always --no-startup-id pulseaudio --start
+exec_always --no-startup-id picom --experimental-backends
+exec_always --no-startup-id $HOME/.local/bin/clearcache.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.wallpapers/*
 
-client.focused          #FFFFFF #000000 #FFFFFF #FFFFFF   #FFFFFF
-client.focused_inactive #000000 #FFFFFF #000000 #000000   #000000
-client.unfocused        #000000 #FFFFFF #000000 #000000   #000000
-client.urgent           #FF0000 #FF0000 #FFFFFF #FF0000   #000000
-client.placeholder      #000000 #FFFFFF #000000 #000000   #000000
-client.background               #000000
-
-exec --no-startup-id --autostart --environment i3
-
-exec --no-startup-id xset s off -dpms
-exec --no-startup-id xbacklight -set 25
-exec --no-startup-id picom --experimental-backends
-exec --no-startup-id $HOME/.local/bin/cleancache.sh
-exec --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.wallpapers/*
-
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1   "1"
+set $ws2   "2"
+set $ws3   "3"
+set $ws4   "4"
+set $ws5   "5"
+set $ws6   "6"
+set $ws7   "7"
+set $ws8   "8"
+set $ws9   "9"
+set $ws10  "10"
 
 bindsym $m+1 workspace number $ws1
 bindsym $m+2 workspace number $ws2
@@ -60,13 +69,10 @@ bindsym $m+$s+8 move container to workspace number $ws8
 bindsym $m+$s+9 move container to workspace number $ws9
 bindsym $m+$s+0 move container to workspace number $ws10
 
-bindsym $m+$c+k resize shrink height 10 px or 10 ppt
-bindsym $m+$c+j resize grow height 10 px or 10 ppt
-bindsym $m+$c+h resize shrink width 10 px or 10 ppt
-bindsym $m+$c+l resize grow width 10 px or 10 ppt
-
-bindsym $m+r restart
-bindsym $m+p exec --no-startup-id betterlockscreen -l -w /home/blood/.wallpapers/1208751.jpg --blur 0.8
+bindsym $m+$c+k resize shrink  height  10 px or 10 ppt
+bindsym $m+$c+j resize grow    height  10 px or 10 ppt
+bindsym $m+$c+h resize shrink  width   10 px or 10 ppt
+bindsym $m+$c+l resize grow    width   10 px or 10 ppt
 
 bindsym $m+k focus up
 bindsym $m+j focus down
@@ -78,23 +84,40 @@ bindsym $m+$s+j move down
 bindsym $m+$s+h move left
 bindsym $m+$s+l move right
 
-bindsym $m+$a+h split h
-bindsym $m+$a+v split v
+bindsym $m+n split h
+bindsym $m+m split v
 
-bindsym $m+f fullscreen toggle
-bindsym $m+$s+f floating toggle
-bindsym $m+$c+f focus mode_toggle
-bindsym $m+$s+w layout toggle split
+bindsym $m+f         fullscreen  toggle
+bindsym $m+$s+f      floating    toggle
+bindsym $m+$s+space  focus  mode_toggle
 
 bindsym $m+w kill
-bindsym $m+Return exec kitty
-bindsym $m+space exec --no-startup-id rofi -show drun
-bindsym $m+F10 exec --no-startup-id scrot %d-%m-%Y_%H-%M_screenshot.jpg -e 'mv %f ~/Pictures/'
+bindsym $m+r restart
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym $m+Return     exec --no-startup-id kitty
+bindsym $m+space      exec --no-startup-id rofi -show drun
+bindsym $m+p          exec --no-startup-id $HOME/.local/bin/lock.sh
+bindsym $m+F10        exec --no-startup-id $HOME/.local/bin/screenshot.sh
+bindsym $m+$s+d       exec "killall dunst; exec notify-send 'restart dunst'"
 
-bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
+bindsym XF86AudioMute          exec --no-startup-id $HOME/.local/bin/volume.sh --mute
+bindsym XF86AudioRaiseVolume   exec --no-startup-id $HOME/.local/bin/volume.sh --up
+bindsym XF86AudioLowerVolume   exec --no-startup-id $HOME/.local/bin/volume.sh --down
+bindsym XF86MonBrightnessUp    exec --no-startup-id $HOME/.local/bin/brightness.sh --up
+bindsym XF86MonBrightnessDown  exec --no-startup-id $HOME/.local/bin/brightness.sh --down
 
+bindsym $m+$s+i mode "$gaps_inner"
+mode "$gaps_inner" {
+    bindsym 0      gaps inner current set    5
+    bindsym plus   gaps inner current plus   5
+    bindsym minus  gaps inner current minus  5
+    bindsym $m+$s+g mode "default"
+}
+
+bindsym $m+$s+o mode "$gaps_outer"
+mode "$gaps_outer" {
+    bindsym 0      gaps outer current set    5
+    bindsym plus   gaps outer current plus   5
+    bindsym minus  gaps outer current minus  5
+    bindsym $m+$s+g mode "default"
+}

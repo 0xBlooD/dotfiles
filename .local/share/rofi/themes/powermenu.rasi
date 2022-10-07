@@ -1,0 +1,75 @@
+configuration {
+  
+  font: "JetBrainsMono Nerd Font 15";
+
+}
+
+window {
+
+  fullscreen: false;
+
+  width: 60px;
+
+  border: 1px;
+  border-color: rgba(171, 178, 191, 1.0);
+  border-radius: 5;
+
+  text-color: rgba(171, 178, 191, 1.0);
+  background-color: rgba(40, 44, 52, 0.2);
+
+  children: [ mainbox ];
+
+}
+
+mainbox {
+
+  text-color: rgba(171, 178, 191, 1.0);
+  background-color: rgba(40, 44, 52, 0.2);
+
+  children: [ listview ];
+
+}
+
+listview {
+
+  text-color: rgba(171, 178, 191, 1.0);
+  background-color: rgba(40, 44, 52, 0.2);
+
+  lines: 3;
+
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+
+}
+
+element {
+
+  padding: 10;
+  margin: 10;
+
+  text-color: rgba(171, 178, 191, 1.0);
+  background-color: rgba(40, 44, 52, 0.2);
+
+  border-radius: 100%;
+
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+
+}
+
+element-text {
+
+  text-color: rgba(171, 178, 191, 1.0);
+  background-color: transparent;
+
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+
+}
+
+element.selected, element-text.selected {
+
+  text-color: rgba(40, 44, 52, 1.0);
+  background-color: rgba(171, 178, 191, 1.0);
+
+}

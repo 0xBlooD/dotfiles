@@ -1,28 +1,37 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "sass",
-    "scss",
-    "markdown",
-    "html",
-    "json",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "python"
-  ],
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.local/bin/black",
-  "prettier.singleQuote": true,
-  "javascript.autoClosingTags": true,
-  "typescript.autoClosingTags": true,
-  "emmet.includeLanguages": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html"
-  ],
-  "codeLens.enable": false
+
+    "python.formatting.provider": "black",
+
+    "html.enable": true,
+    "html.filetypes": [
+        "html",
+        "htmldjango"
+    ],
+
+    "json.enable": true,
+    "json.format.enable": true,
+
+    "tsserver.enable": true,
+    "tsserver.formatOnType": true,
+    "typescript.suggestionActions.enabled": true,
+    "javascript.format.enabled": true,
+    "javascript.suggestionActions.enabled": true,
+
+    "snippets.extends": {
+        "jaavscriptreact": ["javascript"],
+        "typescript": ["javascript"]
+    },
+
+    "colors.filetypes": ["*"],
+
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "javascript": "jaavscriptreact"
+    },
+
+    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
+
+    "eslint.format.enable": true,
+    "eslint.autoFixOnSave": true
+
 }

@@ -1,72 +1,46 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/.cargo/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
+export LANG=en_US.UTF-8
+export TERM=xterm-256color
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
+zstyle ':omz:update' mode auto
+
+EDITOR="nvim"
+VISUAL="nvim"
+SAVEHIST=0
+HISTSIZE=0
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 7
-
-# Uncomment the following line to enable command auto-correction.
+DISABLE_AUTO_TITLE="true"
 ENABLE_CORRECTION="true"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=()
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+alias ls="ls --color=auto"
+alias la="ls -a --color=auto"
+alias ll="ls -al --color=auto"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
+alias mkdir="mkdir -pv"
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
-EDITOR=nvim
-VISUAL=nvim
-
-zstyle :compinstall filename '/home/blood/.zshrc'
-
-autoload -Uz compinit
-compinit
-
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=0
-
-setopt autocd notify
-bindkey -v
+alias g="git"
+alias d="docker"
+alias t="toipe"
 
 alias v="nvim"
 alias sv="sudo nvim"
 
-alias wall="feh --no-fehbg --bg-fill --randomize $HOME/.wallpapers/*"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-nerdfetch
+pfetch
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
