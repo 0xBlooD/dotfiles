@@ -1,7 +1,7 @@
 *.log
-
 *.swp
 *.swo
 *~
-
 .vscode
+
+.config/nvim.lua.v2/plugin
