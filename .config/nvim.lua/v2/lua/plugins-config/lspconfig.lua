@@ -28,6 +28,13 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require('lspconfig').pyright.setup{
     compabilities = compabilities,
     on_attach = on_attach,
+    python = {
+        analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "workspace",
+            useLibraryCodeForTypes = true
+    }
+  }
 }
 
 require('lspconfig').eslint.setup{
@@ -35,9 +42,10 @@ require('lspconfig').eslint.setup{
     on_attach = on_attach,
 } 
 
-require('lspconfig').eslint.setup{}
-
-require('lspconfig').bashls.setup{}
+require('lspconfig').bashls.setup{
+    compabilities = compabilities,
+    on_attach = on_attach,
+}
 
 require('lspconfig').html.setup {
     capabilities = capabilities,
@@ -56,3 +64,8 @@ require('lspconfig').emmet_ls.setup({
       },
     }
 })
+
+require('lspconfig').rust_analyzer.setup{
+    compabilities = compabilities,
+    on_attach = on_attach,
+}
