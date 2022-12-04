@@ -1,0 +1,59 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 15";
+    location: 1;
+    yoffset: 30;
+    show-icons: false;
+    disable-history: false;
+    click-to-exit: true;
+    display-drun: "";
+    fixed-num-lines: false;
+}
+
+window {
+    width: 49px;
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    border: 1px;
+    border-radius: 0px;
+    border-color: #ffffff;
+    padding: 10;
+    children: [ mainbox ];
+}
+
+mainbox {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    children: [ listview ];
+}
+
+listview {
+    scrollbar: false;
+    dynamic: true;
+    fixed-height: false;
+    lines: 5;
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+}
+
+element {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    padding: 5;
+}
+
+element-text {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+}
+
+element.selected, element-text.selected {
+    transparency: "real";
+    background-color: #ffffff;
+    text-color: #000000e6;
+    border-radius: 50%;
+}

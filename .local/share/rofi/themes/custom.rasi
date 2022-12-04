@@ -1,0 +1,84 @@
+configuration {
+    modes: "drun";
+    font: "JetBrainsMono Nerd Font 12";
+    location: 0;
+    show-icons: false;
+    disable-history: false;
+    click-to-exit: true;
+    display-drun: "";
+    fixed-num-lines: false;
+}
+
+window {
+    width: 400px;
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    border: 1px;
+    border-radius: 0px;
+    border-color: #ffffff;
+    padding: 10;
+    children: [ mainbox ];
+}
+
+mainbox {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    border: 0 0 1px 0;
+    border-radius: 5;
+    border-color: #ffffff;
+    margin: 5 0 10 0;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    padding: 0 10 5 10;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: #333333;
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+}
+
+listview {
+    scrollbar: false;
+    dynamic: true;
+    fixed-height: false;
+    lines: 5;
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+}
+
+element {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+    padding: 5;
+}
+
+element-text {
+    transparency: "real";
+    background-color: #000000e6;
+    text-color: #ffffff;
+}
+
+element.selected, element-text.selected {
+    transparency: "real";
+    background-color: #ffffff;
+    text-color: #000000e6;
+}

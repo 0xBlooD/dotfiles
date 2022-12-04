@@ -36,3 +36,5 @@
     user = bloodzera
 [merge]
 	tool = kdiff3
+[push]
+	autoSetupRemote = true
