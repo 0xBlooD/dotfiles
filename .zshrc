@@ -1,7 +1,3 @@
-PATH=/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH
-QT_SELECT=6
-GTK_THEME=Adwaita:dark
-
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -9,8 +5,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode disabled  # disable automatic updates
 
 plugins=(
-  git
-  zsh-nvm
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -43,14 +37,10 @@ alias svv='sudo vim'
 alias v='nvim'
 alias sv='sudo vim'
 
-alias cc="sudo sh -c 'echo 3 >'/proc/sys/vm/drop_caches'' && sudo swapoff -a && sudo swapon -a"
-
-alias clock="tty-clock -scbt -C 7"
-alias matrix="cmatrix -abr -u 8"
+alias clean="sudo pacman -Syu archlinux-keyring && sudo pacman -Scc && sudo paccache -r && sudo rm -rf $HOME/.cache/* && sudo sh -c 'echo 3 >'/proc/sys/vm/drop_caches'' && sudo swapoff -a && sudo swapon -a"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-colorscript random
+source $HOME/.local/bin/zsh-syntax-highlighting.sh
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+colorscript random

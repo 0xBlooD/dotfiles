@@ -13,22 +13,25 @@ set $C Control
 
 font pango:JetBrainsMono Nerd Font 8
 
-client.focused           #FFFFFF #000000 #FFFFFF #FFFFFF #FFFFFF
-client.focused_inactive  #000000 #FFFFFF #000000 #000000 #000000
-client.unfocused         #000000 #FFFFFF #000000 #000000 #000000
-client.urgent            #FF5555 #FFFFFF #FF5555 #FF5555 #FF5555
-client.placeholder       #000000 #FFFFFF #000000 #000000 #000000
-client.background        	 #FFFFFF
+client.focused           #F6F5F4 #F6F5F4 #262626 #F6F5F4 #F6F5F4
+client.focused_inactive  #303030 #303030 #F6F5F4 #303030 #303030
+client.unfocused         #262626 #262626 #F6F5F4 #262626 #262626
+client.urgent            #A51D2D #F66151 #F6F5F4 #A51D2D #A51D2D
+client.placeholder       #1E1E1E #1E1E1E #F6F5F4 #1E1E1E #1E1E1E
+client.background        #F6F5F4
 
 floating_modifier $M
 tiling_drag modifier titlebar
 focus_follows_mouse no
 
+gaps inner 10
+gaps outer -5
+smart_gaps on
+
 for_window [class="^.*"]                   border pixel 1
 for_window [class="feh"]                   floating enable
 for_window [class="Pavucontrol"]           floating enable
 for_window [class="Lxappearance"]          floating enable
-for_window [class="Blueman-manager"]	   floating enable
 for_window [class="Nm-connection_editor"]  floating enable
 
 set $ws1   "1"
@@ -92,7 +95,7 @@ bindsym $M+r restart
 bindsym $M+Return  exec kitty
 bindsym $M+s       exec flameshot gui
 bindsym $M+space   exec rofi -show drun
-bindsym $M+p       exec $HOME/.local/bin/lock
+bindsym $M+$A+l    exec $HOME/.local/bin/lock
 bindsym $M+$S+d    exec "killall dunst; exec notify-send 'restart dunst'"
 
 bindsym XF86AudioMute          exec --no-startup-id $HOME/.local/bin/volume mute

@@ -1,0 +1,88 @@
+configuration {
+    modes: "drun";
+    font: "JetBrainsMono Nerd Font 10";
+    location: 0;
+    fixed-num-lines: false;
+    show-icons: false;
+    drun-match-fields: "name,exec,keywords";
+    drun-display-format: "{name}";
+    disable-history: false;
+    hover-select: false;
+    combi-modes: "drun";
+    click-to-exit: true;
+    display-drun: "";
+}
+
+window {
+    width: 400px;
+    transparency: "real";
+    background-color: #262626f2;
+    border: 1px;
+    border-radius: 5px;
+    border-color: #f6f5f4;
+    children: [ mainbox ];
+}
+
+mainbox {
+    background-color: #262626f2;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    margin: 10px;
+    padding: 5px;
+    background-color: #f6f5f4;
+    border: 1px;
+    border-radius: 5px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    padding: 5px 10px 5px 5px;
+    text-color: #f6f5f4;
+    background-color: #262626ff;
+    border: 1px;
+    border-radius: 5px;
+}
+
+entry {
+    padding: 5px;
+    placeholder: " Search";
+    placeholder-color: #262626d9;
+    blink: false;
+    cursor: pointer;
+    cursor-width: 1px;
+    cursor-color: #262626f2;
+    text-color: #262626f2;
+    background-color: #f6f5f4;
+}
+
+listview {
+    lines: 5;
+    scrollbar: false;
+    fixed-height: false;
+    dynamic: true;
+    text-color: #f6f5f4;
+    background-color: #262626ff;
+}
+
+element {
+    border: 1px;
+    border-radius: 5px;
+    border-color: #f6f5f4;
+}
+
+element-text {
+    horizontal-align: 0.5;
+}
+
+element, element-text {
+    margin: 5px;
+    text-color: #f6f5f4;
+    background-color: #262626f2;
+}
+
+element.selected, element-text.selected {
+    text-color: #262626f2;
+    background-color: #f6f5f4;
+}

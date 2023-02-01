@@ -18,11 +18,12 @@ alias vv='vim'
 alias svv='sudo vim'
 
 alias v='nvim'
-alias sv='sudo vim'
+alias sv='sudo nvim'
 
-alias cc="sudo sh -c 'echo 3 >'/proc/sys/vm/drop_caches'' && sudo swapoff -a && sudo swapon -a"
+alias clean="sudo pacman -Syu archlinux && sudo pacman -Scc && sudo paccache -r && sudo rm -rf $HOME/.cache/* && sudo sh -c 'echo 3 >'/proc/sys/vm/drop_caches'' && sudo swapoff -a && sudo swapon -a"
 
 PS1='\W\n\$ '
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
