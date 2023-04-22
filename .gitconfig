@@ -5,7 +5,7 @@
     pager = delta
 
 [user]
-	email = 78975020+bloodzera@users.noreply.github.com
+	email = 78975020+0xBlooD@users.noreply.github.com
 	name = BlooD
 
 [color]
@@ -33,7 +33,7 @@
     dm = "diff --minimal"
 
 [github]
-    user = bloodzera
+    user = 0xBlooD
 [merge]
 	tool = kdiff3
 [push]
