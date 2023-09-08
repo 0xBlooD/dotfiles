@@ -1,52 +1,73 @@
+@import "./colors.rasi"
+
 configuration {
-    font: "JetBrainsMono Nerd Font 10";
-    location: 0;
-    fixed-num-lines: true;
-    show-icons: false;
-    hover-select: true;
-    click-to-exit: true;
+
+  font: "RobotoMono Nerd Font 50";
+  disable-history: true;
+  fixed-num-lines: true;
+  hover-select: true;
+  show-icons: false;
+
 }
 
 window {
-    border: 1px solid;
-    border-radius: 5px;
-    border-color: #262626;
-    background-color: #262626;
-    children: [ mainbox ];
+
+  transparency: "real";
+  background-color: @bgt;
+  text-color: @fg;
+
+  fullscreen: true;
+
+  children: [ mainbox ];
+
 }
 
 mainbox {
-    margin: 5px;
-    padding: 0;
-    children: [ listview, message ];
+
+  background-color: transparent;
+  text-color: @fg;
+
+  children: [ listview ];
+
 }
 
 listview {
-    lines: 1;
-    columns: 4;
-    margin: 0;
-    padding: 5px;
-    background-color: #ff0000;
+
+  background-color: transparent;
+  text-color: @fg;
+
+  layout: horizontal;
+  scrollbar: false;
+  dynamic: true;
+  lines: 4;
+  margin: 300px;
+  padding: 0 0 0 170px;
+
 }
 
 element {
+
+  margin: 5px;
+  text-color: @fg;
+  background-color: transparent;
+
 }
 
 element-text {
-    font: "JetBrainsMono Nerd Font 50";
-    vertical-align: 0.5;
-    horizontal-align: 0.5;
+
+  padding: 30px;
+  text-color: @fg;
+  background-color: @bgt;
+  border-radius: 10px;
+  vertical-align: 0.5;
+  horizontal-align: -1;
+
 }
 
 element.selected, element-text.selected {
-}
 
-message {
-    
-    children: [ textbox ];
-}
+  text-color: @bg;
+  background-color: @fg;
+  border-radius: 10px;
 
-textbox {
-    vertical-align: 0.5;
-    horizontal-align: 0.5;
 }

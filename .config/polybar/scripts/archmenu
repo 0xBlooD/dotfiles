@@ -1,0 +1,30 @@
+#!/bin/sh
+
+shutdown='󰐥'
+reboot='󰓦'
+suspend=''
+lock=''
+
+opts="$shutdown\n$reboot\n$suspend\n$lock"
+
+rofi_cmd="$(echo -e $opts | rofi -dmenu -theme powermenu)"
+
+case $rofi_cmd in
+
+  "$shutdown")
+    shutdown now
+  ;;
+
+  "$reboot")
+    reboot
+  ;;
+
+  "$suspend")
+    systemd suspend
+  ;;
+
+  "$lock")
+    $HOME/.local/bin/lock
+  ;;
+
+esac

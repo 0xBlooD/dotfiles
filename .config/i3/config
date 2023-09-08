@@ -1,49 +1,63 @@
 exec --no-startup-id dex --autostart --environment i3
 
-exec_always --no-startup-id flameshot
-exec_always --no-startup-id pulseaudio --start
-exec_always --no-startup-id picom --experimental-backends
+exec --no-startup-id flameshot
+exec --no-startup-id picom --experimental-backends
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --no-fehbg --bg-fill --randomize $HOME/.wallpapers/*
 
-set $A Mod1
 set $M Mod4
+set $A Mod1
 set $S Shift
 set $C Control
 
-font pango:JetBrainsMono Nerd Font 8
+font pango:RobotoMono Nerd Font 8
 
-client.focused           #F6F5F4 #F6F5F4 #262626 #F6F5F4 #F6F5F4
-client.focused_inactive  #303030 #303030 #F6F5F4 #303030 #303030
-client.unfocused         #262626 #262626 #F6F5F4 #262626 #262626
-client.urgent            #A51D2D #F66151 #F6F5F4 #A51D2D #A51D2D
-client.placeholder       #1E1E1E #1E1E1E #F6F5F4 #1E1E1E #1E1E1E
-client.background        #F6F5F4
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.background       	    $bg
 
 floating_modifier $M
 tiling_drag modifier titlebar
 focus_follows_mouse no
 
-gaps inner 10
-gaps outer -5
-smart_gaps on
+gaps inner 4
+gaps outer 0
 
 for_window [class="^.*"]                   border pixel 1
 for_window [class="feh"]                   floating enable
+for_window [class="floating"]              floating enable
 for_window [class="Pavucontrol"]           floating enable
 for_window [class="Lxappearance"]          floating enable
 for_window [class="Nm-connection_editor"]  floating enable
+for_window [window_role="About"]           floating enable
+for_window [window_role="Organizer"]       floating enable
+for_window [window_role="Preferences"]     floating enable
+for_window [window_role="bubble"]          floating enable
+for_window [window_role="page-info"]       floating enable
+for_window [window_role="pop-up"]          floating enable
+for_window [window_role="task_dialog"]     floating enable
+for_window [window_role="toolbox"]         floating enable
+for_window [window_role="webconsole"]      floating enable
+for_window [window_type="dialog"]          floating enable
+for_window [window_type="menu"]            floating enable
 
-set $ws1   "1"
-set $ws2   "2"
-set $ws3   "3"
-set $ws4   "4"
-set $ws5   "5"
-set $ws6   "6"
-set $ws7   "7"
-set $ws8   "8"
-set $ws9   "9"
-set $ws10  "10"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 bindsym $M+1 workspace number $ws1
 bindsym $M+2 workspace number $ws2
@@ -67,10 +81,12 @@ bindsym $M+$S+8 move container to workspace number $ws8
 bindsym $M+$S+9 move container to workspace number $ws9
 bindsym $M+$S+0 move container to workspace number $ws10
 
-bindsym $M+k focus up
-bindsym $M+j focus down
-bindsym $M+h focus left
-bindsym $M+l focus right
+for_window [class="Spotify"] move container to workspace $ws10
+
+bindsym $M+Up     focus up
+bindsym $M+Down   focus down
+bindsym $M+Left   focus left
+bindsym $M+Right  focus right
 
 bindsym $M+$S+k move up
 bindsym $M+$S+j move down
@@ -82,21 +98,26 @@ bindsym $M+$C+j resize grow    height  10 px or 10 ppt
 bindsym $M+$C+h resize shrink  width   10 px or 10 ppt
 bindsym $M+$C+l resize grow    width   10 px or 10 ppt
 
-bindsym $M+o split h
+bindsym $M+h split h
 bindsym $M+v split v
 
-bindsym $M+f         fullscreen  toggle
-bindsym $M+$S+f      floating    toggle
+bindsym $M+minus gaps inner current minus 2
+bindsym $M+plus gaps inner current plus 2
+bindsym $M+g gaps inner current set 4
+
+bindsym $M+$S+f      fullscreen  toggle
+bindsym $M+f         floating    toggle
 bindsym $M+$S+space  focus       mode_toggle
 
-bindsym $M+w kill
 bindsym $M+r restart
+bindsym $M+w kill
 
-bindsym $M+Return  exec kitty
-bindsym $M+s       exec flameshot gui
-bindsym $M+space   exec rofi -show drun
-bindsym $M+$A+l    exec $HOME/.local/bin/lock
-bindsym $M+$S+d    exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $M+Return     exec kitty
+bindsym $M+$S+Return  exec kitty --class=floating
+bindsym $M+s          exec flameshot gui
+bindsym $M+space      exec rofi -show drun
+bindsym $M+l          exec $HOME/.local/bin/lock
+bindsym $M+$S+d       exec "killall dunst; exec notify-send 'restart dunst'"
 
 bindsym XF86AudioMute          exec --no-startup-id $HOME/.local/bin/volume mute
 bindsym XF86AudioRaiseVolume   exec --no-startup-id $HOME/.local/bin/volume up

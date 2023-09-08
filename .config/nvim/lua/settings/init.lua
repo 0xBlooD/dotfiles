@@ -1,0 +1,46 @@
+require('settings/colorscheme')
+
+local set = vim.o
+
+set.autochdir = true
+set.autoindent = true
+set.autoread = true
+set.autowrite = true
+set.backspace = "indent,eol,nostop"
+set.backup = false
+set.backupcopy = "no"
+set.backupdir = ""
+set.breakindent = true
+set.clipboard = "unnamedplus"
+set.completeopt = "menuone,longest,preview,noselect"
+set.copyindent = true
+set.cursorline = true
+set.cursorlineopt = "screenline,number"
+set.emoji = true
+set.encoding = "utf-8"
+set.expandtab = true
+set.fileencoding = "utf-8"
+set.foldenable = false
+set.foldexpr = "nvim_treesitter#foldexpr()"
+set.foldmethod = "expr"
+set.hlsearch = true
+set.inccommand = "split"
+set.incsearch = true
+set.linebreak = true
+set.mouse = "a"
+set.mousescroll = "ver:2,hor:6"
+set.number = true
+set.relativenumber = true
+set.shiftwidth = 4
+set.smartcase = true
+set.smartindent = true
+set.smarttab = true
+set.softtabstop = 2
+set.splitbelow = true
+set.splitright = true
+set.swapfile = false
+set.tabstop = 4
+set.title = true
+set.wildmenu = true
+set.wildmode = "full,longest"
+set.wrap = true

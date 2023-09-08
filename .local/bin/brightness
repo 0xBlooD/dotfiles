@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $1 in
+    up)
+        xbacklight -inc 5%
+        dunstify "$(xbacklight -get | cut -d "." -f 1)%" -r 999
+        ;;
+    down)
+        xbacklight -dec 5%
+        dunstify "$(xbacklight -get | cut -d "." -f 1)%" -r 999
+        ;;
+esac

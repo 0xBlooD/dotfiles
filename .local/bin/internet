@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case $1 in
+
+    "-l") kitty --class floating sh -c "sudo nmtui";;
+
+    "-r") nm-connection-editor;;
+
+esac

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+case $1 in
+    up)
+        amixer sset Master 5%+
+        dunstify "$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')" -r 666
+        ;;
+    down)
+        amixer sset Master 5%-
+        dunstify "$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')" -r 666
+        ;;
+    mute)
+        amixer sset Master toggle
+        dunstify "$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')" -r 666
+        ;;
+esac

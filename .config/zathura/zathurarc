@@ -1,0 +1,5 @@
+set window-title-basename "true"
+set selection-clipboard clipboard
+set guioptions no
+set adjust-open width
+set recolor false

@@ -1,0 +1,103 @@
+@import "./colors.rasi"
+
+configuration {
+
+    font: "RobotoMono Nerd Font 10";
+    show-icons: false;
+    display-drun: "";
+
+}
+
+window {
+
+    transparency: "real";
+    background-color: @bgt;
+    text-color: @fg;
+    width: 500px;
+    border: 1px solid;
+    border-color: @fg;
+    border-radius: 3px;
+
+    children: [ mainbox ];
+
+}
+
+mainbox {
+
+    background-color: transparent;
+    text-color: @fg;
+    margin: 5px;
+    padding: 10px;
+
+    children: [ inputbar, listview ];
+
+}
+
+inputbar {
+
+    background-color: transparent;
+    text-color: @fg;
+    border: 1px solid;
+    border-color: @fg;
+    border-radius: 5px;
+    padding: 10px;
+
+    children: [ prompt, entry ];
+
+}
+
+prompt {
+
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0 10px 0 0;
+
+}
+
+entry {
+
+    background-color: transparent;
+    text-color: @fg;
+    cursor: text;
+    placeholder: " Search...";
+    placeholder-color: @fg;
+
+}
+
+listview {
+
+    background-color: transparent;
+    text-color: @fg;
+
+    scrollbar: false;
+    dynamic: true;
+    lines: 5;
+
+}
+
+element {
+
+    background-color: transparent;
+    text-color: @fg;
+    border: 1px solid;
+    border-color: @fg;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+element-text {
+
+    background-color: transparent;
+    text-color: @fg;
+    cursor: pointer;
+
+}
+
+element.selected, element-text.selected {
+
+    background-color: @fg;
+    text-color: @bg;
+
+}
