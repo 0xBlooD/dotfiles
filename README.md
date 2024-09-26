@@ -5,7 +5,7 @@
 - Installing neovim nightly
 
 ```powershell
-winget install --id=Neovim.Neovim.Nightly  -e
+winget install --id=Neovim.Neovim.Nightly  -e --ignore-security-hash
 ```
 
 - Installing adicional pkgs
